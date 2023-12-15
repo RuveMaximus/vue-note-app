@@ -2,15 +2,22 @@
     <div class="note-list-item" @click="$emit('editNote', $.vnode.key)">
         <div class="d-flex flex-column">
             <h4 class="note__title">{{ note.title }}</h4>
+            <div class="d-flex">
+                <span v-for="tag in note.tags" class="badge rounded-pill text-bg-primary">
+                    {{ tag }}
+                </span>
+            </div>
             <p class="text-muted m-0">{{ trancute(note.content, 20) }}</p>
         </div>
-        <button class="btn btn-danger" @click="$emit('deleteNote', $.vnode.key)">
+        <Button class="btn-danger" @click="$emit('deleteNote', $.vnode.key)">
             <i class="bi bi-trash2"></i>
-        </button>
+        </Button>
     </div>
 </template>
 
 <script setup>
+    import Button from './UI/Button.vue';
+    
     defineEmits(['deleteNote', 'editNote'])
     defineProps(['note']);
 
@@ -29,14 +36,8 @@
         align-items: center;
         width: 100%;
         transition: background-color .2s;
-        padding: 10px;
+        padding: .5rem;
         border-bottom: 1px solid #ccc;
-    }
-
-    .note-list-item .btn-danger {
-        width: 36px;
-        height: 36px;
-        padding: 0;
     }
 
     .note-list-item:hover {

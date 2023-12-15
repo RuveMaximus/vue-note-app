@@ -2,7 +2,9 @@
     <form class="d-flex" @submit.prevent="createNote">
         <div class="input-group">
             <input class="form-control" v-model="title" type="text" placeholder="Note title...">
-            <Button>+</Button>
+            <Button class="btn-primary">
+                <i class="bi bi-plus-circle-fill"></i>
+            </Button>
         </div>
     </form>
 </template>
@@ -21,7 +23,8 @@ const createNote = () => {
     }
     emit("createNote", {
         title: title.value,
-        content: ''
+        content: '',
+        tags: []
     });
     title.value = '';
 }

@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, onUnmounted, ref, watch } from 'vue';
+import Button from './components/UI/Button.vue';
 import NoteListItem from './components/NoteListItem.vue';
 import NoteForm from './components/NoteForm.vue';
 import NoteEditing from './components/NoteEditing.vue';
@@ -67,9 +68,11 @@ const clearStorage = () => {
   <div class="container-fluid">
     <div class="row">
       <div class="p-0 bg-light overflow-y-auto col-sm-4 border-end shadow-sm" style="height: 100vh;">
-        <div class="d-flex justify-content-around">
+        <div class="d-flex px-2 justify-content-between align-items-center">
           <h2 class="fw-bold py-2">My notes</h2>
-          <button class="btn btn-danger" @click="clearStorage">Clear All!</button>
+          <Button class="btn-danger" @click="clearStorage">
+            <i class="bi bi-fire"></i>
+          </Button>
         </div>
         <NoteListItem v-for="note in notes" 
           :note=note
