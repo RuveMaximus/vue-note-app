@@ -1,7 +1,7 @@
 <template>
     <form class="d-flex" @submit.prevent="createNote">
         <div class="input-group">
-            <input class="form-control" v-model="title" type="text" placeholder="Note header...">
+            <input class="form-control" v-model="title" type="text" placeholder="Note title...">
             <Button>+</Button>
         </div>
     </form>
